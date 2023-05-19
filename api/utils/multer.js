@@ -10,4 +10,5 @@ const storage = multer.diskStorage({
     },
 });
 //Product Category middlewares
-export const productCategoryMulter = multer({ storage }).single("category");
+export const productCategoryMulter = multer({ storage }).single(
+    "category-photo");
