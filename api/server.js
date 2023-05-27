@@ -3,7 +3,9 @@ import colors from "colors";
 import dotenv from "dotenv";
 import cors from "cors";
 import productCategoryRoute from "./routes/productCategory.js";
+import productBrandRoute from "./routes/productBrand.js";
 import mongoDBConnect from "./config/db.js";
+import { errorHandle } from "./middlewares/errorHandler.js";
 
 
 //Init Express
@@ -20,9 +22,13 @@ app.use(Express.static("api/public"));
 
 // Routes
 app.use('/api/v1/product', productCategoryRoute);
+app.use('/api/v1/product', productBrandRoute);
 
 //Environment Variable
 const PORT = process.env.PORT || 5000;
+
+// Use Error Handler
+//app.use(errorHandle);
 
 // Listen
 app.listen(PORT,()=>{
